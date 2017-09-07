@@ -1,14 +1,20 @@
-# Phonograph
-[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://github.com/kabouzeid/Phonograph/blob/master/LICENSE.txt)
+# PhonographHTTPMod
 
-**A material designed local music player for Android.**
+## Some screenshots
+### The android music player controlled over hotspot from iPhone
 
-![Screenshots](./art/art.jpg?raw=true)
+<img src="https://i.imgur.com/4GoBQkk.png" width="300" />
+<img src="https://i.imgur.com/XmLsSbM.jpg" width="300" />
 
-<a href="https://play.google.com/store/apps/details?id=com.kabouzeid.gramophone">
-  <img height="50" alt="Get it on Google Play"
-      src="https://play.google.com/intl/en_us/badges/images/apps/en-play-badge.png" />
-</a>
+## Description
 
+Modified version of my favorite music player - Phonograph, which supports song and volume control over LAN.
 
+Added NanoHTTPD and Websockets for static auto updated webpage accessible when devices are on same WiFi or connected to hotspot.
 
+Tested on Sony Xperia Z with Android 7.1.1 with 2 devices connected(Android and iOS) over Hotspot for 7 hours without problems.
+The Sony’s battery percentage went from 90% to 50%.
+
+This project may or may not be updated.
+
+Made for one night because of a long car trip.

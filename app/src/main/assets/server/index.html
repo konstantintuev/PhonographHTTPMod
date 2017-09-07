@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <title>Music Player</title>
+
+    <link rel="stylesheet" href="reset.min.css">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body onload="onLoad();">
+<main class="with-hover" ontouchstart="">
+    <div class="background">
+        <div></div>
+    </div>
+    <div class="container">
+        <div class="player">
+            <div class="front">
+                <img class="art" src="back.jpg">
+                <div style="
+          padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+">
+                    <input type="range" id="volume" min="0" max="100" step="1" class="slider" onchange="onChange(this.value)" oninput="onInput(this.value)">
+                </div>
+                <div class="meta">
+                    <time style="
+    display: flex;
+    align-items: center;
+    justify-content: center;
+">
+                        <span id="volumeShow">0</span>
+
+                    </time>
+                    <div class="controls top">
+                        <a class="back10 do10" id="back10" onclick="Back10();">
+                            <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                                 width="550.000000pt" height="550.000000pt" viewBox="0 0 550.000000 550.000000"
+                                 preserveAspectRatio="xMidYMid meet">
+                                <g transform="translate(0.000000,550.000000) scale(0.100000,-0.100000)"
+                                   stroke="none">
+                                    <path d="M1995 5048 c-170 -109 -413 -264 -538 -345 -125 -80 -224 -149 -220
+-153 4 -4 114 -75 243 -158 129 -82 369 -235 533 -340 l297 -191 0 226 c0 210
+1 225 18 220 9 -2 181 -102 382 -221 l365 -216 3 300 c1 165 6 300 10 300 24
+-1 200 -44 267 -66 546 -178 987 -579 1213 -1103 61 -141 112 -317 139 -477
+24 -146 24 -465 -1 -609 -37 -222 -113 -448 -207 -624 -233 -434 -622 -769
+-1084 -934 -114 -41 -216 -67 -360 -93 -140 -25 -470 -25 -610 0 -476 85 -845
+285 -1161 628 -300 326 -481 757 -510 1216 l-7 112 -108 0 -109 0 0 -48 c0
+-167 48 -443 109 -629 113 -344 279 -613 540 -874 202 -202 407 -346 646 -453
+491 -219 1029 -254 1540 -100 732 220 1303 814 1494 1557 145 559 60 1163
+-232 1660 -164 278 -416 543 -687 721 -242 160 -511 270 -787 322 l-93 18 0
+273 c0 150 -2 273 -4 273 -2 0 -171 -99 -375 -220 -204 -121 -376 -220 -381
+-220 -6 0 -11 88 -12 223 l-3 223 -310 -198z m865 -493 c0 -162 -3 -295 -6
+-295 -10 0 -504 294 -500 297 9 9 492 292 499 293 4 0 7 -133 7 -295z m-770 0
+c0 -157 -2 -285 -5 -285 -11 0 -435 276 -436 284 -1 9 417 284 434 285 4 1 7
+-127 7 -284z"></path>
+                                    <path d="M2003 3246 c-19 -38 -61 -95 -99 -136 -71 -75 -222 -181 -309 -218
+l-50 -21 -3 -150 c-1 -83 -1 -151 0 -151 2 0 27 9 56 20 119 45 253 125 334
+198 l38 34 0 -626 0 -626 165 0 165 0 0 870 0 870 -133 0 -133 0 -31 -64z"></path>
+                                    <path d="M3226 3294 c-182 -44 -304 -177 -370 -406 -39 -135 -51 -244 -51
+-468 1 -388 54 -587 195 -731 127 -129 310 -178 498 -134 224 53 352 229 408
+560 24 139 24 481 0 620 -44 264 -131 422 -279 509 -105 62 -268 82 -401 50z
+m211 -283 c99 -46 143 -223 143 -581 0 -370 -40 -537 -140 -588 -90 -46 -185
+-12 -230 84 -39 84 -51 167 -57 405 -9 349 18 562 82 637 51 61 126 77 202 43z"></path>
+                                </g>
+                            </svg>
+                        </a>
+                        <a class="rewind skip" id="prev" onclick="Prev();">
+                            <svg viewBox="0 0 36 20">
+                                <path d="M1.69813738,11.0254725 C0.75331072,10.4595484 0.761328762,9.53720142 1.69813738,8.97607983 L16.2885768,0.236823587 C17.2334034,-0.329100579 17.9993368,0.11180583 17.9993368,1.20339155 L17.9993368,18.7981608 C17.9993368,19.8979057 17.2253854,20.3258504 16.2885768,19.7647288 L1.69813738,11.0254725 Z"></path>
+                                <path d="M19.6988006,8.97607983 C18.7539739,9.542004 18.761992,10.4643509 19.6988006,11.0254725 L34.28924,19.7647288 C35.2340667,20.3306529 36,19.8897465 36,18.7981608 L36,1.20339155 C36,0.103646637 35.2260486,-0.324298001 34.28924,0.236823587 L19.6988006,8.97607983 Z"></path>
+                            </svg>
+                        </a>
+                        <a class="button js-button play">
+                            <svg width="100%" height="100%" viewBox="9 9 20 18" >
+                                <defs>
+                                    <path id="pause-icon" data-state="playing" d="M11,10 L17,10 17,26 11,26 M20,10 L26,10 26,26 20,26" ></path>
+                                    <path id="play-icon"  data-state="paused"  d="M11,10 L18,13.74 18,22.28 11,26 M18,13.74 L26,18 26,18 18,22.28" ></path>
+                                </defs>
+                                <use xlink:href="#play-icon" ></use>
+                            </svg>
+                        </a>
+                        <a class="forward skip" onclick="Next();">
+                            <svg viewBox="0 0 36 20">
+                                <path d="M34.3018626,8.97607983 C35.2466893,9.542004 35.2386712,10.4643509 34.3018626,11.0254725 L19.7114232,19.7647288 C18.7665966,20.3306529 18.0006632,19.8897465 18.0006632,18.7981608 L18.0006632,1.20339155 C18.0006632,0.103646637 18.7746146,-0.324298001 19.7114232,0.236823587 L34.3018626,8.97607983 Z"></path>
+                                <path d="M16.3011994,8.97607983 C17.2460261,9.542004 17.238008,10.4643509 16.3011994,11.0254725 L1.71075999,19.7647288 C0.765933339,20.3306529 0,19.8897465 0,18.7981608 L0,1.20339155 C0,0.103646637 0.773951381,-0.324298001 1.71075999,0.236823587 L16.3011994,8.97607983 Z"></path>
+                            </svg>
+                        </a>
+                        <a class="fwd10 do10" id="fwd10" onclick="Skip10();">
+                            <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                                 width="550.000000pt" height="550.000000pt" viewBox="0 0 550.000000 550.000000"
+                                 preserveAspectRatio="xMidYMid meet">
+                                <g transform="translate(0.000000,550.000000) scale(0.100000,-0.100000)"
+                                   stroke="none">
+                                    <path d="M3190 5026 c0 -142 -4 -226 -10 -226 -5 0 -177 99 -381 220 -204 121
+-373 220 -375 220 -2 0 -4 -123 -4 -273 l0 -273 -92 -18 c-681 -129 -1277
+-596 -1575 -1234 -209 -446 -257 -985 -132 -1469 170 -662 648 -1216 1274
+-1478 724 -304 1536 -205 2170 264 130 96 352 318 449 450 194 262 328 563
+390 874 25 124 46 302 46 389 l0 48 -109 0 -108 0 -7 -112 c-29 -459 -210
+-890 -510 -1216 -316 -343 -685 -543 -1161 -628 -140 -25 -470 -25 -610 0
+-222 39 -382 91 -571 182 -305 148 -591 401 -780 690 -153 233 -251 488 -300
+779 -25 144 -25 463 -1 609 55 323 181 624 368 876 74 100 235 269 334 350
+233 191 531 336 820 400 50 11 93 20 97 20 4 0 9 -135 10 -300 l3 -300 365
+216 c201 119 373 219 383 221 16 5 17 -10 17 -220 l0 -226 298 191 c163 105
+403 258 532 340 129 83 239 154 243 158 5 4 -27 30 -70 57 -563 360 -980 627
+-990 635 -10 8 -13 -36 -13 -216z m-289 -323 c214 -126 246 -148 231 -158 -35
+-25 -480 -285 -486 -285 -3 0 -6 133 -6 295 0 162 3 295 6 295 3 0 118 -66
+255 -147z m738 -2 c117 -75 213 -141 212 -147 -1 -8 -425 -284 -436 -284 -3 0
+-5 128 -5 285 0 157 3 285 8 284 4 0 103 -62 221 -138z"></path>
+                                    <path d="M2023 3246 c-19 -38 -61 -95 -99 -136 -71 -75 -222 -181 -309 -218
+l-50 -21 -3 -150 c-1 -83 -1 -151 0 -151 2 0 27 9 56 20 119 45 253 125 334
+198 l38 34 0 -626 0 -626 165 0 165 0 0 870 0 870 -133 0 -133 0 -31 -64z"></path>
+                                    <path d="M3246 3294 c-182 -44 -304 -177 -370 -406 -39 -135 -51 -244 -51
+-468 1 -388 54 -587 195 -731 127 -129 310 -178 498 -134 224 53 352 229 408
+560 24 139 24 481 0 620 -44 264 -131 422 -279 509 -105 62 -268 82 -401 50z
+m211 -283 c99 -46 143 -223 143 -581 0 -370 -40 -537 -140 -588 -90 -46 -185
+-12 -230 84 -39 84 -51 167 -57 405 -9 349 18 562 82 637 51 61 126 77 202 43z"></path>
+                                </g>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="info" style="padding-bottom: 24px !important;">
+                        <h1 id="songTitle">Song Title</h1>
+                        <h2 id="airtist">Artist</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<script src="jquery.js"></script>
+
+<script src="reconnecting-websocket.min.js"></script>
+
+<script src="d3js.js"></script>
+
+<script type="text/javascript">
+    "use strict";
+
+    var stateBool = false;
+    /* global d3, document */
+    var playButton = {
+        el: document.querySelector(".js-button"),
+
+        states: {
+            playing: {
+                nextState: "paused",
+                iconEl: document.querySelector("#pause-icon")
+            },
+            paused:  {
+                nextState: "playing",
+                iconEl: document.querySelector("#play-icon")
+            }
+        },
+
+        animationDuration: 350,
+
+        init: function () {
+            this.setInitialState();
+            this.replaceUseEl();
+            this.el.addEventListener("click", this.goToNextState.bind(this));
+        },
+
+        setInitialState: function () {
+            var initialIconRef = this.el.querySelector("use").getAttribute("xlink:href");
+            var stateName = this.el.querySelector(initialIconRef).getAttribute("data-state");
+            this.setState(stateName);
+        },
+
+        replaceUseEl: function () {
+            d3.select(this.el.querySelector("use")).remove();
+            d3.select(this.el.querySelector("svg")).append("path")
+                .attr("class", "js-icon")
+                .attr("d", this.stateIconPath());
+        },
+
+        goToNextState: function () {
+            var next = this.state.nextState;
+            this.setState(next);
+            if (next === "playing") {
+                Play();
+            } else if (next === "paused") {
+                Pause();
+            }
+        },
+
+        setState: function (stateName) {
+            this.state = this.states[stateName];
+
+            d3.select(this.el.querySelector(".js-icon")).transition()
+                .duration(this.animationDuration)
+                .attr("d", this.stateIconPath());
+        },
+
+        stateIconPath: function () {
+            return this.state.iconEl.getAttribute("d");
+        }
+    };
+
+    playButton.init();
+</script>
+
+<script>
+
+    $("main").addClass("pre-enter").removeClass("with-hover");
+    setTimeout(function(){
+        $("main").addClass("on-enter");
+    }, 500);
+    setTimeout(function(){
+        $("main").removeClass("pre-enter on-enter");
+        setTimeout(function(){
+            $("main").addClass("with-hover");
+        }, 50);
+    }, 2000);
+
+</script>
+
+<script type="text/javascript">
+    var volume = /*volume*/"0";
+
+    var slider = null;
+    var output = null;
+    var songTitle = null;
+    var airtist = null;
+
+    function onLoad() {
+        var getUrl = window.location;
+        slider = document.getElementById("volume");
+        output = document.getElementById("volumeShow");
+        songTitle = document.getElementById("songTitle");
+        airtist = document.getElementById("airtist");
+        slider.value = volume;
+        output.innerHTML = "Volume: " + slider.value;
+        var host = getUrl.host;
+        host = host.substring(0, host.indexOf(":"));
+        console.log(host);
+        var ws = new ReconnectingWebSocket("ws://" + host + ":8090");
+        ws.reconnectDecay = 2.5;
+        ws.maxReconnectInterval = 60000;
+        ws.onopen = function () {
+            console.log('socket connection opened properly');
+        };
+
+        ws.onmessage = function (evt) {
+            var data =  evt.data;
+            console.log("Message received = " + data);
+            if (data !== "") {
+                var json = JSON.parse(data);
+                if (json.hasOwnProperty("volume")) {
+                    slider.value = json.volume;
+                    output.innerHTML = "Volume: " + slider.value;
+                }
+                if (json.hasOwnProperty("state")) {
+                    var state = json.state;
+                    console.log("playState" + state);
+                    if (state === "play") {
+                        playButton.setState("playing");
+                    } else if (state === "pause") {
+                        playButton.setState("paused");
+                    }
+                }
+                if (json.hasOwnProperty("songName")) {
+                    songTitle.innerHTML = json.songName;
+                }
+                if (json.hasOwnProperty("songAirtist")) {
+                    airtist.innerHTML = json.songAirtist;
+                }
+            }
+        };
+
+        ws.onclose = function () {
+            // websocket is closed.
+            console.log("Connection closed...");
+        };
+    }
+
+    function onInput(value) {
+        output.innerHTML = "Volume: " + value;
+    }
+
+    function onChange(value) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                //alert("changed");
+            }
+        };
+        xhttp.open("GET", "?action=volume&value="+value, true);
+        xhttp.send();
+    }
+
+    function Play() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                //alert("changed");
+            }
+        };
+        xhttp.open("GET", "?action=play", true);
+        xhttp.send();
+    }
+
+    function Pause() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                //alert("changed");
+            }
+        };
+        xhttp.open("GET", "?action=pause", true);
+        xhttp.send();
+    }
+
+    function Next() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+
+            }
+        };
+        xhttp.open("GET", "?action=next", true);
+        xhttp.send();
+    }
+
+    function Prev() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+            }
+        };
+        xhttp.open("GET", "?action=prev", true);
+        xhttp.send();
+    }
+    function Back10() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+
+            }
+        };
+        xhttp.open("GET", "?action=back10", true);
+        xhttp.send();
+    }
+    function Skip10() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+
+        };
+        xhttp.open("GET", "?action=skip10", true);
+        xhttp.send();
+    }
+</script>
+
+</body>
+
+</html>
